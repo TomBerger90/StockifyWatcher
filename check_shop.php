@@ -1,7 +1,7 @@
 <?php
-include_once "vendor/autoload.php";
+require_once "vendor/autoload.php";
 use Twilio\Rest\Client;
-include_once "config.php";
+require_once "config.php";
 
 echo "[".date("Y-m-d H:i:s")."]\n";
 
