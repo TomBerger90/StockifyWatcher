@@ -9,7 +9,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    error_log("Erreur de connexion à la base de données : " . $e->getMessage() . "\n", 3, __DIR__ . "/check_supplier.log");
+    error_log("Erreur de connexion à la base de données : " . $e->getMessage() . "\n", 3, __DIR__ . "/check_shop.log");
     die("Erreur de connexion à la base de données. Veuillez consulter le fichier de log pour plus de détails.");
 }
 
@@ -70,9 +70,9 @@ try {
     }
 } catch (PDOException $e) {
     $pdo->rollBack();
-    error_log("Erreur de base de données : " . $e->getMessage(). "\n", 3, __DIR__ . "/check_supplier.log");
+    error_log("Erreur de base de données : " . $e->getMessage(). "\n", 3, __DIR__ . "/check_shop.log");
 } catch (Exception $e) {
-    error_log("Erreur : " . $e->getMessage(). "\n", 3, __DIR__ . "/check_supplier.log");
+    error_log("Erreur : " . $e->getMessage(). "\n", 3, __DIR__ . "/check_shop.log");
 }
 
 function processProductChanges($pdo, $product, $shop) {
@@ -185,7 +185,7 @@ function sendWebhookNotification($message, $imageUrl, $productUrl) {
         sleep(2);
     } catch (Exception $e) {
         echo "Erreur lors de l'envoi du message: " . $e->getMessage();
-        error_log("Erreur lors de l'envoi du message: " . $e->getMessage(). "\n", 3, __DIR__ . "/check_supplier.log");
+        error_log("Erreur lors de l'envoi du message: " . $e->getMessage(). "\n", 3, __DIR__ . "/check_shop.log");
 
     }
 }
