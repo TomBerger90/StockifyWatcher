@@ -39,7 +39,7 @@ composer require twilio/sdk
 Use `add_shop.php` to add a new Shopify store to monitor:
 
 ```bash
-php add_shop.php [Shop Name] [Shop URL]
+php add_shop.php "Shop Name" "Shop URL"
 ```
 
 
